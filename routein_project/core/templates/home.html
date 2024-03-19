@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Home</title>
+  </head>
+  <body>
+    <h2>Welcome to the Home Screen</h2>
+
+    {% if user.is_authenticated %}
+    <p>Hello, {{ user.username }}!</p>
+    <form action="{% url 'core:logout' %}" method="post">
+      {% csrf_token %}
+      <button type="submit">Logout</button>
+    </form>
+    {% else %}
+    <p>You are not logged in.</p>
+    <a href="{% url 'core:login' %}">Login</a> |
+    <a href="{% url 'core:signup' %}">Sign Up</a>
+    {% endif %}
+  </body>
+</html>
