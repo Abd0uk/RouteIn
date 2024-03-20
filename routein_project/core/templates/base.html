@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- You can use RTL in Pico Css to make arabic veriosn of RouteIN -->
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <!-- CSS -->
+    <!-- list of all css variables https://picocss.com/docs/css-variables -->
+    <!-- Color Picker https://picocss.com/docs/colors -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
+    />
+    <!-- Fonts -->
+    <title>{% block title %}RouteIn{% endblock %}</title>
+  </head>
+
+  <body class="container">
+    <!-- Header -->
+    <header>
+      <nav>
+        <ul>
+          <li style="font-size: 40px; margin-left: 10px">
+            <strong>RouteIn</strong>
+          </li>
+        </ul>
+        <ul>
+          {% if user.is_authenticated %}
+          <li>
+            <details class="dropdown">
+              <summary>Dashboard</summary>
+              <ul dir="rtl">
+                <li><a href="#">Dashboard</a></li>
+                <li><a href="#">Goals</a></li>
+                <li><a href="#">Routines</a></li>
+              </ul>
+            </details>
+          </li>
+          <li>
+            <form action="{% url 'core:logout' %}" method="post">
+              {% csrf_token %}
+              <button type="submit">Logout</button>
+            </form>
+          </li>
+          {% else %}
+          <li><a href="{% url 'core:home' %}">Home</a></li>
+          <li><a href="{% url 'core:login' %}">Login</a></li>
+          <li><a href="{% url 'core:signup' %}">Signup</a></li>
+          {% endif %}
+        </ul>
+      </nav>
+    </header>
+    <main>
+      {% block content %}
+      <!-- This block will be overridden by child templates -->
+      {% endblock %}
+    </main>
+
+    <footer>
+      <p>&copy; {% now "Y" %} RouteIn. All rights reserved.</p>
+    </footer>
+  </body>
+</html>

@@ -1,21 +1,109 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Home</title>
-  </head>
-  <body>
-    <h2>Welcome to the Home Screen</h2>
+{% extends "base.html" %} {% block content %} {% if user.is_authenticated %}
+<p>Hello, {{ user.username }}!</p>
+<!-- Quote -->
+<div>
+  <h3>Today's Quote</h3>
+  <blockquote>
+    “Goals, Routine Quotes!”
+    <footer>
+      <cite>— someperson</cite>
+    </footer>
+  </blockquote>
+</div>
+<!-- end Quote -->
+{% else %}
+<header>
+  <h1>Welcome to RouteIn!</h1>
+  {% comment %}
+  <p><mark>You are not logged in!</mark></p>
+  {% endcomment %}
+  <p>
+    At RouteIn, we're here to empower you to achieve your dreams and lead a more
+    fulfilling life.
+  </p>
+</header>
+<div class="grid">
+  <article id="article">
+    <h2>Features:</h2>
 
-    {% if user.is_authenticated %}
-    <p>Hello, {{ user.username }}!</p>
-    <form action="{% url 'core:logout' %}" method="post">
-      {% csrf_token %}
-      <button type="submit">Logout</button>
-    </form>
-    {% else %}
-    <p>You are not logged in.</p>
-    <a href="{% url 'core:login' %}">Login</a> |
-    <a href="{% url 'core:signup' %}">Sign Up</a>
-    {% endif %}
-  </body>
-</html>
+    <footer>
+      <ol>
+        <li>
+          <h4>Goal Setting</h4>
+          <p>
+            <kbd
+              >Clarify and set achievable goals that align with your values and
+              aspirations, whether short-term or long-term.</kbd
+            >
+          </p>
+        </li>
+        <li>
+          <h4>Routine Builder</h4>
+          <p>
+            <kbd
+              >Craft habits with our routine builder to optimize productivity
+              and well-being through daily, weekly, or monthly schedules.</kbd
+            >
+          </p>
+        </li>
+        <li>
+          <h4>Progress Tracking</h4>
+          <p>
+            <kbd>
+              Stay motivated by tracking your progress over time. Visualize your
+              achievements, celebrate milestones, and adjust your strategies as
+              needed to stay on course.</kbd
+            >
+          </p>
+        </li>
+      </ol>
+    </footer>
+  </article>
+</div>
+
+<article id="article">
+  <h2>Getting Started:</h2>
+  <footer>
+    <ol>
+      <li>
+        <h4>Create an Account</h4>
+
+        <p>
+          <kbd>
+            Sign up for free and unlock access to our suite of tools and
+            resources.</kbd
+          >
+        </p>
+      </li>
+      <li>
+        <h4>Set Your Goals</h4>
+        <p>
+          <kbd>
+            Define your success: whether mastering skills, adopting healthier
+            habits, or achieving milestones, articulate objectives clearly.</kbd
+          >
+        </p>
+      </li>
+      <li>
+        <h4>Build Your Routine</h4>
+        <p>
+          <kbd>
+            Craft a routine that aligns with your goals and priorities,
+            structuring your days for maximum effectiveness and fulfillment from
+            morning to night.</kbd
+          >
+        </p>
+      </li>
+      <li>
+        <h4>Track Your Progress</h4>
+        <p>
+          <kbd>
+            Track your path to success: log achievements, reflect on challenges,
+            and adjust as needed to stay on track.</kbd
+          >
+        </p>
+      </li>
+    </ol>
+  </footer>
+</article>
+{% endif %} {% endblock %}
