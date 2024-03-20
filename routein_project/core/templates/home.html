@@ -13,97 +13,131 @@
 <!-- end Quote -->
 {% else %}
 <header>
-  <h1>Welcome to RouteIn!</h1>
-  {% comment %}
+  {% comment %} {% endcomment %} {% comment %}
   <p><mark>You are not logged in!</mark></p>
   {% endcomment %}
-  <p>
-    At RouteIn, we're here to empower you to achieve your dreams and lead a more
-    fulfilling life.
-  </p>
 </header>
+{% load static %}
+
 <div class="grid">
-  <article id="article">
-    <h2>Features:</h2>
-
-    <footer>
-      <ol>
-        <li>
-          <h4>Goal Setting</h4>
-          <p>
-            <kbd
-              >Clarify and set achievable goals that align with your values and
-              aspirations, whether short-term or long-term.</kbd
-            >
-          </p>
-        </li>
-        <li>
-          <h4>Routine Builder</h4>
-          <p>
-            <kbd
-              >Craft habits with our routine builder to optimize productivity
-              and well-being through daily, weekly, or monthly schedules.</kbd
-            >
-          </p>
-        </li>
-        <li>
-          <h4>Progress Tracking</h4>
-          <p>
-            <kbd>
-              Stay motivated by tracking your progress over time. Visualize your
-              achievements, celebrate milestones, and adjust your strategies as
-              needed to stay on course.</kbd
-            >
-          </p>
-        </li>
-      </ol>
-    </footer>
-  </article>
-</div>
-
-<article id="article">
-  <h2>Getting Started:</h2>
-  <footer>
+  <div>
+    <img src="{% static 'homecover.png' %}" alt="Example Image" />
+  </div>
+  <div style="padding-top: 50px">
+    <h3>Chart your path, Find your rhythm</h3>
+    <p>
+      We're here to empower you to achieve your dreams and lead a more
+      fulfilling life in just 3 Steps!
+    </p>
     <ol>
+      <p></p>
       <li>
-        <h4>Create an Account</h4>
-
-        <p>
-          <kbd>
-            Sign up for free and unlock access to our suite of tools and
-            resources.</kbd
-          >
-        </p>
+        Set Goals <i class="fa-solid fa-bullseye" style="color: #ffffff"></i>
       </li>
       <li>
-        <h4>Set Your Goals</h4>
-        <p>
-          <kbd>
-            Define your success: whether mastering skills, adopting healthier
-            habits, or achieving milestones, articulate objectives clearly.</kbd
-          >
-        </p>
+        Set Routine
+        <i class="fa-regular fa-calendar-days" style="color: #ffffff"></i>
       </li>
       <li>
-        <h4>Build Your Routine</h4>
-        <p>
-          <kbd>
-            Craft a routine that aligns with your goals and priorities,
-            structuring your days for maximum effectiveness and fulfillment from
-            morning to night.</kbd
-          >
-        </p>
-      </li>
-      <li>
-        <h4>Track Your Progress</h4>
-        <p>
-          <kbd>
-            Track your path to success: log achievements, reflect on challenges,
-            and adjust as needed to stay on track.</kbd
-          >
-        </p>
+        Track Progress
+        <i class="fa-solid fa-bars-progress" style="color: #ffffff"></i>
       </li>
     </ol>
-  </footer>
-</article>
+  </div>
+</div>
+<hr />
+<div class="grid">
+  <details>
+    <summary style="font-size: 40px"><mark>Features</mark></summary>
+    <p></p>
+    <article id="article">
+      <h2>Features:</h2>
+      <footer>
+        <ol>
+          <li>
+            <h4>Goal Setting</h4>
+            <p>
+              <kbd
+                >Clarify and set achievable goals that align with your values
+                and aspirations, whether short-term or long-term.</kbd
+              >
+            </p>
+          </li>
+          <li>
+            <h4>Routine Builder</h4>
+            <p>
+              <kbd
+                >Craft habits with our routine builder to optimize productivity
+                and well-being through daily, weekly, or monthly schedules.</kbd
+              >
+            </p>
+          </li>
+          <li>
+            <h4>Progress Tracking</h4>
+            <p>
+              <kbd>
+                Stay motivated by tracking your progress over time. Visualize
+                your achievements, celebrate milestones, and adjust your
+                strategies as needed to stay on course.</kbd
+              >
+            </p>
+          </li>
+        </ol>
+      </footer>
+    </article>
+  </details>
+  {% comment %} {% endcomment %}
+
+  <details>
+    <summary style="font-size: 40px"><mark>Getting Started</mark></summary>
+    <article id="article">
+      <h4>Getting Started:</h4>
+      <footer>
+        <ol>
+          <li>
+            <h4>Create an Account</h4>
+
+            <p>
+              <kbd>
+                Sign up for free and unlock access to our suite of tools and
+                resources.</kbd
+              >
+            </p>
+          </li>
+          <li>
+            <h4>Set Your Goals</h4>
+            <p>
+              <kbd>
+                Define your success: whether mastering skills, adopting
+                healthier habits, or achieving milestones, articulate objectives
+                clearly.</kbd
+              >
+            </p>
+          </li>
+          <li>
+            <h4>Build Your Routine</h4>
+            <p>
+              <kbd>
+                Craft a routine that aligns with your goals and priorities,
+                structuring your days for maximum effectiveness and fulfillment
+                from morning to night.</kbd
+              >
+            </p>
+          </li>
+          <li>
+            <h4>Track Your Progress</h4>
+            <p>
+              <kbd>
+                Track your path to success: log achievements, reflect on
+                challenges, and adjust as needed to stay on track.</kbd
+              >
+            </p>
+          </li>
+        </ol>
+      </footer>
+    </article>
+  </details>
+</div>
+<hr />
+
 {% endif %} {% endblock %}

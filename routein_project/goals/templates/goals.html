@@ -1,0 +1,13 @@
+{% extends "base.html" %} {% block content %} {% if user.is_authenticated %}
+<p>Hello, {{ user.username }}!</p>
+{% endif %}
+
+<div>
+  <h1>Create Goal</h1>
+  <form action="post">{{form}}
+    <input type="submit" value="Add Goal">
+  </form>
+
+</div>
+<!-- end create goal -->
+{% endblock %}
