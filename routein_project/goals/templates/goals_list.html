@@ -1,0 +1,41 @@
+{% extends "base.html" %} {% block content %}
+<div class="container">
+  {% if user.is_authenticated %}
+  <div class="alert alert-success" role="alert">
+    Hello, {{ user.username }}!
+  </div>
+  {% endif %}
+
+  <h1>Goal Details</h1>
+
+  <div class="row">
+    {% for goal in object_list %}
+    <article>
+      <div class="col-md-6">
+        <div class="card mb-3">
+          <div class="card-body">
+            <h5 class="card-title">{{ goal.title }}</h5>
+            <p class="card-text">
+              <strong>Desired Date:</strong> {{ goal.desired_date }}
+            </p>
+            <p class="card-text"><strong>Notes:</strong> {{ goal.notes }}</p>
+            <div class="btn-group" role="group" aria-label="Goal Actions">
+              <a
+                href="{% url 'goals:update_goal' goal.pk %}"
+                class="btn btn-primary"
+                >Edit</a
+              >
+              <a
+                href="{% url 'goals:delete_goal' goal.pk %}"
+                class="btn btn-danger"
+                >Delete</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

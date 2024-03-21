@@ -18,6 +18,7 @@
       src="https://kit.fontawesome.com/de3a2b8496.js"
       crossorigin="anonymous"
     ></script>
+
     <title>{% block title %}RouteIn{% endblock %}</title>
   </head>
 
@@ -37,7 +38,7 @@
               <summary>Dashboard</summary>
               <ul dir="rtl">
                 <li><a href="#">Dashboard</a></li>
-                <li><a href="#">Goals</a></li>
+                <li><a href="{% url 'goals:list_goals'%}">Goals</a></li>
                 <li><a href="#">Routines</a></li>
               </ul>
             </details>

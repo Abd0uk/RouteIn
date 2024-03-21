@@ -1,0 +1,23 @@
+{% extends "base.html" %} {% block content %} {% if user.is_authenticated %}
+<p>Hello, {{ user.username }}!</p>
+{% endif %}
+
+<article>
+  <div>
+    <h1>Goal Details</h1>
+    <h4>{{object.title}}</h4>
+    <p>{{object.desired_date}}</p>
+    <p>{{object.notes}}</p>
+    <a href="{% url 'goals:update_goal' object.pk %}" class="btn btn-primary"
+      >Edit</a
+    >
+    <a href="{% url 'goals:delete_goal' object.pk %}" class="btn btn-danger"
+      >Delete</a
+    >
+  </div>
+</article>
+
+<!-- end create goal -->
+{% endblock %}
+
+<!-- ------------ -->

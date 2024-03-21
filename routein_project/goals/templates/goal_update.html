@@ -1,0 +1,17 @@
+{% extends "base.html" %} {% block content %} {% if user.is_authenticated %}
+<p>Hello, {{ user.username }}!</p>
+{% endif %}
+
+<div>
+  <h1>Create Goal</h1>
+
+  <form method="post">
+    {% csrf_token %} {{form}}
+    <input type="submit" value="Edit Goal" />
+  </form>
+  <a href="{% url 'goals:delete_goal' object.pk %}" class="btn btn-danger"
+    >Delete</a
+  >
+</div>
+<!-- end create goal -->
+{% endblock %}
